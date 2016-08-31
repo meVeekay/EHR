@@ -1,7 +1,0 @@
-com\training\soap\service\PersonType.class
-com\training\soap\service\PersonServiceRequestType.class
-com\training\soap\service\PersonServicePortType.class
-com\training\soap\service\PersonServiceResponseType.class
-com\training\soap\service\ObjectFactory.class
-com\training\soap\service\package-info.class
-com\training\soap\service\PersonService.class
