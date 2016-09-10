@@ -33,7 +33,7 @@
 			<soap:operation style="document"
 				soapAction="http://com.ehr/PatientService/getPatient" />
 			<wsdl:input name="PatientServiceRequest">
-				<soap:body use="literal" />
+				<soap:body use="literal" /> 
 			</wsdl:input>
 			<wsdl:output name="PatientServiceResponse">
 				<soap:body use="literal" />
