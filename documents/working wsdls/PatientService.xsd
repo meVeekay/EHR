@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   elementFormDefault="qualified" 
+      xmlns:tns="http://com.ehr/patientservice/1.0"
+      xmlns="http://com.ehr/patientservice/1.0"
+      targetNamespace="http://com.ehr/patientservice/1.0">
+  
+  <xsd:element name="PatientServiceRequest" type="PatientServiceRequestType" />
+  <xsd:element name="PatientServiceResponse" type="PatientServiceResponseType" />
+
+  <xsd:complexType name="PatientServiceRequestType">
+      <xsd:sequence>
+      	<xsd:element  maxOccurs="1" ref="PatientType" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="PatientType">
+	  <xsd:complexType>
+	      <xsd:sequence>
+		      <xsd:element name="firstName" type="xsd:string" />
+		      <xsd:element name="lastName" type="xsd:string" />
+			  <xsd:element name="gender" type="xsd:string" />
+		      <xsd:element name="age" type="xsd:string" />
+			  <xsd:element name="phoneNumber" type="xsd:string" />
+		      <xsd:element name="ssn" type="xsd:string" />
+	      </xsd:sequence>
+	  </xsd:complexType> 
+  </xsd:element> 
+  
+  <xsd:complexType name="PatientServiceResponseType">
+      <xsd:sequence>
+			<xsd:element name="resultString" type="xsd:string" />
+      </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

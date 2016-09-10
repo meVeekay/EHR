@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="patientService"
+	targetNamespace="http://com.ehr/patientservice/1.0" xmlns:tns="http://com.ehr/patientservice/1.0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://com.ehr/patientservice/1.0">
+			<xsd:import schemaLocation="PatientService.xsd"
+				namespace="http://com.ehr/patientservice/1.0" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="PatientServiceRequest">
+		<wsdl:part name="PatientServiceRequest" element="tns:PatientServiceRequest" />
+	</wsdl:message>
+
+	<wsdl:message name="PatientServiceResponse">
+		<wsdl:part name="PatientServiceResponse" element="tns:PatientServiceResponse" />
+	</wsdl:message>
+
+	<wsdl:portType name="PatientServicePortType">
+		<wsdl:operation name="addPatient">
+			<wsdl:input name="PatientServiceRequest" message="tns:PatientServiceRequest" />
+			<wsdl:output name="PatientServiceResponse" message="tns:PatientServiceResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="PatientServiceBinding" type="tns:PatientServicePortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="addPatient">
+			<soap:operation style="document"
+				soapAction="http://com.ehr/PatientService/getPatient" />
+			<wsdl:input name="PatientServiceRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="PatientServiceResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="PatientService">
+		<wsdl:port name="PatientServicePort" binding="tns:PatientServiceBinding">
+			<soap:address location="/service/patientService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
